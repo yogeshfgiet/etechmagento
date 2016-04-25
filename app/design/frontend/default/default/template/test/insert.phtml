@@ -1,0 +1,41 @@
+ <form method="post"action="" class="scaffold-form">
+        <fieldset><legend>User Data</legend> 
+            <?php echo $this->__('Title') ?>
+            <input type="text" name="title" value="<?php
+            if (!empty($title)) {
+                echo $title;
+            }
+            ?>"><br>
+            File Name:
+            <input type="text" name="filename"  value="<?php
+            if (!empty($filename)) {
+                echo $filename;
+            }
+            ?>"><br>
+            Contents:
+            <input type="text" name="contents" value="<?php
+            if (!empty($content)) {
+                echo $content;
+            }
+            ?>"><br>
+            Status:
+
+
+            <input type="text" name="status" value="<?php
+            if (!empty($status)) {
+                echo $status;
+            }
+            ?>"><br>
+
+
+
+            <input type="Submit" name="submit" value="<?php echo $this->__('submit') ?>">
+            <?php if (!empty($id)) { ?>
+
+                <input type="Submit" name="update" value="<?php echo $this->__('update') ?>">
+
+
+            <?php } ?> 
+
+        </fieldset>
+    </form>

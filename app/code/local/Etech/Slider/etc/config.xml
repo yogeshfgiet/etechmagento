@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Etech
+ * @package    Etech_Slider
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Etech_Slider>
+            <version>0.1.0</version>
+        </Etech_Slider>
+    </modules>
+    <frontend>
+        <routers>
+            <slider>
+                <use>standard</use>
+                <args>
+                    <module>Etech_Slider</module>
+                    <frontName>slider</frontName>
+                </args>
+            </slider>
+        </routers>
+        <layout>
+            <updates>
+                <slider>
+                    <file>slider.xml</file>
+                </slider>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<slider>
+				<use>admin</use>
+				<args>
+					<module>Etech_Slider</module>
+					<frontName>slider</frontName>
+				</args>
+			</slider>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<slider module="slider">
+				<title>Slider</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="slider">
+						<title>Manage Items</title>
+						<sort_order>0</sort_order>
+						<action>slider/adminhtml_slider</action>
+					</items>
+				</children>
+			</slider>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Etech_Slider>
+							<title>Slider Module</title>
+							<sort_order>10</sort_order>
+						</Etech_Slider>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<slider>
+					<file>slider.xml</file>
+				</slider>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <slider>
+                <class>Etech_Slider_Model</class>
+                <resourceModel>slider_mysql4</resourceModel>
+            </slider>
+            <slider_mysql4>
+                <class>Etech_Slider_Model_Mysql4</class>
+                <entities>
+                    <slider>
+                        <table>slider</table>
+                    </slider>
+                </entities>
+            </slider_mysql4>
+        </models>
+        <resources>
+            <slider_setup>
+                <setup>
+                    <module>Etech_Slider</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </slider_setup>
+            <slider_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </slider_write>
+            <slider_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </slider_read>
+        </resources>
+        <blocks>
+            <slider>
+                <class>Etech_Slider_Block</class>
+            </slider>
+        </blocks>
+        <helpers>
+            <slider>
+                <class>Etech_Slider_Helper</class>
+            </slider>
+        </helpers>
+    </global>
+</config>

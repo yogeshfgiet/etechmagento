@@ -1,0 +1,31 @@
+<div class="page-title">
+    <h1><?php echo Mage::helper('contacts')->__('Registration Form') ?></h1>
+</div>  
+<div class="fieldset">
+    <h2 class="legend">User Information</h2>
+    <fieldset><legend>User Data</legend> 
+        <form method="post" action="<?php echo $this->getFormAction(); ?>" class="scaffold-form">
+
+            <label for="comment" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('User Name') ?></label>
+
+            <input type="text" name="user_name"   value="" class="input-text required-entry"><br><br>
+            <label for="comment" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('First Name') ?></label>
+
+            <input type="text" name="first_name"  value="" class="input-text required-entry"><br><br>
+
+            <label for="comment" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Last Name') ?></label>
+
+            <input type="text" name="last_name" value="" class="input-text required-entry"><br><br>
+
+
+            <button class="button" title="Submit"  name="submit" type="submit" value="<?php echo $this->__('Submit'); ?>"> 
+
+                <span>
+                    <span>Submit</span>
+                </span>
+
+            </button>
+        </form>
+    </fieldset>
+</div>
+

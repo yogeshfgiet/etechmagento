@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   New
+ * @package    New_Test1
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <New_Test1>
+            <version>0.1.0</version>
+        </New_Test1>
+    </modules>
+    <frontend>
+        <routers>
+            <test1>
+                <use>standard</use>
+                <args>
+                    <module>New_Test1</module>
+                    <frontName>test1</frontName>
+                </args>
+            </test1>
+        </routers>
+        <layout>
+            <updates>
+                <test1>
+                    <file>test1.xml</file>
+                </test1>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<test1>
+				<use>admin</use>
+				<args>
+					<module>New_Test1</module>
+					<frontName>test1</frontName>
+				</args>
+			</test1>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<test1 module="test1">
+				<title>Test1</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="test1">
+						<title>Manage Items</title>
+						<sort_order>0</sort_order>
+						<action>test1/adminhtml_test1</action>
+					</items>
+				</children>
+			</test1>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<New_Test1>
+							<title>Test1 Module</title>
+							<sort_order>10</sort_order>
+						</New_Test1>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<test1>
+					<file>test1.xml</file>
+				</test1>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <test1>
+                <class>New_Test1_Model</class>
+                <resourceModel>test1_mysql4</resourceModel>
+            </test1>
+            <test1_mysql4>
+                <class>New_Test1_Model_Mysql4</class>
+                <entities>
+                    <test1>
+                        <table>test1</table>
+                    </test1>
+                </entities>
+            </test1_mysql4>
+        </models>
+        <resources>
+            <test1_setup>
+                <setup>
+                    <module>New_Test1</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </test1_setup>
+            <test1_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </test1_write>
+            <test1_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </test1_read>
+        </resources>
+        <blocks>
+            <test1>
+                <class>New_Test1_Block</class>
+            </test1>
+        </blocks>
+        <helpers>
+            <test1>
+                <class>New_Test1_Helper</class>
+            </test1>
+        </helpers>
+    </global>
+</config>

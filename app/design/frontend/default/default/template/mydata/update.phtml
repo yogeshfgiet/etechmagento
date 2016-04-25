@@ -1,0 +1,77 @@
+  
+<?php
+$update_Data = $this->loadUpdateData();
+$profile_id = $update_Data [0]['profile_id'];
+$user_name = $update_Data [0]['user_name'];
+$first_name = $update_Data [0]['first_name'];
+$last_name = $update_Data [0]['last_name'];
+?>
+
+<div class="page-title">
+    <h1><?php echo Mage::helper('contacts')->__('Update Informamtion ') ?></h1>
+</div>
+<form action=" " id="contactForm" method="post" class="scaffold-form">
+    <div class="fieldset">
+        <h2 class="legend"><?php echo Mage::helper('contacts')->__('Update Information') ?></h2>
+        <p class="required"><?php echo Mage::helper('contacts')->__('* Required Fields') ?></p>
+        <ul class="form-list">
+
+
+            <li>
+                <label for="telephone"><?php echo Mage::helper('contacts')->__('User Name') ?></label>
+                <div class="input-box">
+                    <input name="user_name" id="telephone" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Telephone')) ?>" value="<?php
+                    if (!empty($user_name)) {
+                        echo $user_name;
+                    }
+                    ?>" class="input-text" type="tel" />
+                </div>
+            </li>
+
+            <li>
+                <label for="telephone"><?php echo Mage::helper('contacts')->__('First Name') ?></label>
+                <div class="input-box">
+                    <input name="first_name" id="telephone" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Telephone')) ?>" value="<?php
+                    if (!empty($first_name)) {
+                        echo $first_name;
+                    }
+                    ?>" class="input-text" type="tel" />
+                </div>
+            </li>
+
+
+            <li>
+                <label for="telephone"><?php echo Mage::helper('contacts')->__('Last Name') ?></label>
+                <div class="input-box">
+                    <input name="last_name" id="telephone" title="" value="<?php
+                    if (!empty($last_name)) {
+                        echo $last_name;
+                    }
+                    ?>" class="input-text" type="tel" />
+                </div>
+            </li>
+
+            <li>
+
+                <div class="input-box">
+                    <input name="profile_id" id="telephone" title="" value="<?php
+                    if (!empty($profile_id)) {
+                        echo $profile_id;
+                    }
+                    ?>" class="input-text" type="hidden" />
+                </div>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="buttons-set">
+
+        <button type="submit"  name="submit" title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('submit')) ?>" class="button"><span><span><?php echo Mage::helper('contacts')->__('Submit') ?></span></span></button>
+    </div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var contactForm = new VarienForm('contactForm', true);
+//]]>
+</script>

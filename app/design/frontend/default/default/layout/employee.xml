@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <employee_index_index>
+        <reference name="content">
+            <block type="employee/employee" name="employee" template="employee/employee.phtml" />
+        </reference>
+    </employee_index_index>
+</layout> 

@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+* @category   Excellence
+* @package    Excellence_Newtest
+* @author     ModuleCreator
+* @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+    <modules>
+        <Excellence_Newtest>
+            <version>0.1.0</version>
+        </Excellence_Newtest>
+    </modules>
+    <frontend>
+        <routers>
+            <newtest>
+                <use>standard</use>
+                <args>
+                    <module>Excellence_Newtest</module>
+                    <frontName>newtest</frontName>
+                </args>
+            </newtest>
+        </routers>
+        <layout>
+            <updates>
+                <newtest>
+                    <file>newtest.xml</file>
+                </newtest>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <newtest>
+                <use>admin</use>
+                <args>
+                    <module>Excellence_Newtest</module>
+                    <frontName>newtest</frontName>
+                </args>
+            </newtest>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <newtest module="newtest">
+                <title>Newtest</title>
+                <sort_order>71</sort_order>               
+                <children>
+                    <items module="newtest">
+                        <title>Manage Items</title>
+                        <sort_order>0</sort_order>
+                        <action>newtest/adminhtml_newtest</action>
+                    </items>
+                </children>
+            </newtest>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <Excellence_Newtest>
+                            <title>Newtest Module</title>
+                            <sort_order>10</sort_order>
+                        </Excellence_Newtest>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <newtest>
+                    <file>newtest.xml</file>
+                </newtest>
+            </updates>
+        </layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <newtest>
+                <class>Excellence_Newtest_Model</class>
+                <resourceModel>newtest_mysql4</resourceModel>
+            </newtest>
+            <newtest_mysql4>
+                <class>Excellence_Newtest_Model_Mysql4</class>
+                <entities>
+                    <newtest>
+                        <table>newtest</table>
+                    </newtest>
+                </entities>
+            </newtest_mysql4>
+        </models>
+        <resources>
+            <newtest_setup>
+                <setup>
+                    <module>Excellence_Newtest</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </newtest_setup>
+            <newtest_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </newtest_write>
+            <newtest_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </newtest_read>
+        </resources>
+        <blocks>
+            <newtest>
+                <class>Excellence_Newtest_Block</class>
+            </newtest>
+        </blocks>
+        <helpers>
+            <newtest>
+                <class>Excellence_Newtest_Helper</class>
+            </newtest>
+        </helpers>
+    </global>
+</config>

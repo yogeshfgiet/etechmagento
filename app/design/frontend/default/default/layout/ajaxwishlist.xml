@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <ajaxwishlist_index_index>
+        <reference name="content">
+            <block type="ajaxwishlist/ajaxwishlist" name="ajaxwishlist" template="ajaxwishlist/ajaxwishlist.phtml" />
+        </reference>
+    </ajaxwishlist_index_index>
+</layout> 

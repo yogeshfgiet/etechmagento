@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Excellence
+ * @package    Excellence_Ajax
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Excellence_Ajax>
+            <version>0.1.0</version>
+        </Excellence_Ajax>
+    </modules>
+    <frontend>
+        <routers>
+            <ajax>
+                <use>standard</use>
+                <args>
+                    <module>Excellence_Ajax</module>
+                    <frontName>ajax</frontName>
+                </args>
+            </ajax>
+        </routers>
+        <layout>
+            <updates>
+                <ajax>
+                    <file>ajax.xml</file>
+                </ajax>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<ajax>
+				<use>admin</use>
+				<args>
+					<module>Excellence_Ajax</module>
+					<frontName>ajax</frontName>
+				</args>
+			</ajax>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<ajax module="ajax">
+				<title>Ajax</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="ajax">
+						<title>Manage Items</title>
+						<sort_order>0</sort_order>
+						<action>ajax/adminhtml_ajax</action>
+					</items>
+				</children>
+			</ajax>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Excellence_Ajax>
+							<title>Ajax Module</title>
+							<sort_order>10</sort_order>
+						</Excellence_Ajax>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<ajax>
+					<file>ajax.xml</file>
+				</ajax>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <ajax>
+                <class>Excellence_Ajax_Model</class>
+                <resourceModel>ajax_mysql4</resourceModel>
+            </ajax>
+            <ajax_mysql4>
+                <class>Excellence_Ajax_Model_Mysql4</class>
+                <entities>
+                    <ajax>
+                        <table>ajax</table>
+                    </ajax>
+                </entities>
+            </ajax_mysql4>
+        </models>
+        <resources>
+            <ajax_setup>
+                <setup>
+                    <module>Excellence_Ajax</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ajax_setup>
+            <ajax_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </ajax_write>
+            <ajax_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </ajax_read>
+        </resources>
+        <blocks>
+            <ajax>
+                <class>Excellence_Ajax_Block</class>
+            </ajax>
+        </blocks>
+        <helpers>
+            <ajax>
+                <class>Excellence_Ajax_Helper</class>
+            </ajax>
+        </helpers>
+    </global>
+</config>

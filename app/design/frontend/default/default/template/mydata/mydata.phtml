@@ -1,0 +1,89 @@
+
+<?php
+$myData = $this->adminData();
+
+?> 
+
+
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php echo $collection = $this->getCollection(); ?>
+
+
+<div class="page-title">
+    <h1><?php echo Mage::helper('contacts')->__('User Information') ?></h1>
+</div>  
+
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php echo $collection = $this->getCollection(); ?>
+
+<?php echo $this->getPagerHtml(); ?>
+<?php if ($collection->getSize()): ?>
+    <table class="data-table" id="my-custom-table">
+        <col width="1" />
+        <col width="1" />
+        <col />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <thead>
+            <tr>
+                <th class="number"><?php echo $this->__('Profile Id') ?></th>
+                <th class="date"><?php echo $this->__('User Id') ?></th>
+                 <th class="date"><?php echo $this->__('User Name') ?></th>
+                <th class="total"><span class="nobr"><?php echo $this->__('First Name') ?></span></th>
+                <th class="total"><span class="nobr"><?php echo $this->__('Last Name') ?></span></th>
+                <th class="status"><span class="nobr"><?php echo $this->__('Update') ?></span></th>
+                <th class="view"><span class="nobr"><?php echo $this->__('Dalete') ?></span></th>
+            </tr>
+        </thead>
+        <tbody>
+    <?php $_odd = ''; ?>
+            <?php foreach ($collection as $value): ?>
+                <tr class="<?php echo($value['user_id']); ?>">
+                    <td class="number"><?php echo $value['profile_id'] ?></td>
+                    <td class="date"><span class="nobr"><?php echo $value['user_id'] ?></span></td>
+                     <td class="total"><?php echo $value['user_name'] ?></td>
+
+                    <td class="total"><?php echo $value['first_name'] ?></td>
+                    <td class="status"><em><?php echo $value['last_name'] ?></em></td>
+
+                    <td> <a href="index/update?edit_id=<?php echo($value['user_id']); ?>"  >Update</a></td>
+                    <td> <a href="#" id="<?php echo($value['user_id']); ?>"class="link-reorder" >Delete</a></td>
+                </tr>
+    <?php endforeach; ?>
+        </tbody>
+    </table>
+    <script type="text/javascript">decorateTable('my-custom-table');</script>
+    <?php echo $this->getPagerHtml(); ?>
+<?php else: ?>
+    <p><?php echo $this->__('The collection is empty.'); ?></p>
+<?php endif ?>
+
+<div class="buttons-set">
+    <p class="back-link"><a href="index/insert"><small></small>Add New Row</a></p>
+</div>
+<table class="data-table" id="my-custom-table">
+    <col width="1" />
+
+    <thead>
+        <tr>
+            <th class="number"><?php echo $this->__('Name') ?></th>
+            <th class="date"><?php echo $this->__('Status') ?></th>
+
+            <th class="total"><span class="nobr"><?php echo $this->__('Country') ?></span></th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+
+
+        <tr>
+            <td class="number"><?php echo $myData[0]; ?></td>
+            <td class="date"><span class="nobr"><?php echo $myData[1]; ?></span></td>
+            <td class="total"><?php echo $myData[2]; ?></td>
+
+        </tr>
+
+    </tbody>
+</table>

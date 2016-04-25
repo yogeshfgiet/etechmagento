@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <salesgrid_index_index>
+        <reference name="content">
+            <block type="salesgrid/salesgrid" name="salesgrid" template="salesgrid/salesgrid.phtml" />
+        </reference>
+    </salesgrid_index_index>
+</layout> 

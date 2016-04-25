@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+* @category   Excellence
+* @package    Excellence_Salesgrid
+* @author     ModuleCreator
+* @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+    <modules>
+        <Excellence_Salesgrid>
+            <version>0.1.0</version>
+        </Excellence_Salesgrid>
+    </modules>
+    <frontend>
+        <routers>
+            <salesgrid>
+                <use>standard</use>
+                <args>
+                    <module>Excellence_Salesgrid</module>
+                    <frontName>salesgrid</frontName>
+                </args>
+            </salesgrid>
+        </routers>
+        <layout>
+            <updates>
+                <salesgrid>
+                    <file>salesgrid.xml</file>
+                </salesgrid>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <salesgrid>
+                <use>admin</use>
+                <args>
+                    <module>Excellence_Salesgrid</module>
+                    <frontName>salesgrid</frontName>
+                </args>
+            </salesgrid>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <salesgrid module="salesgrid">
+                <title>Salesgrid</title>
+                <sort_order>71</sort_order>               
+                <children>
+                    <items module="salesgrid">
+                        <title>Manage Items</title>
+                        <sort_order>0</sort_order>
+                        <action>salesgrid/adminhtml_salesgrid</action>
+                    </items>
+                </children>
+            </salesgrid>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <Excellence_Salesgrid>
+                            <title>Salesgrid Module</title>
+                            <sort_order>10</sort_order>
+                        </Excellence_Salesgrid>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <salesgrid>
+                    <file>salesgrid.xml</file>
+                </salesgrid>
+            </updates>
+        </layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <salesgrid>
+                <class>Excellence_Salesgrid_Model</class>
+                <resourceModel>salesgrid_mysql4</resourceModel>
+            </salesgrid>
+            <salesgrid_mysql4>
+                <class>Excellence_Salesgrid_Model_Mysql4</class>
+                <entities>
+                    <salesgrid>
+                        <table>salesgrid</table>
+                    </salesgrid>
+                </entities>
+            </salesgrid_mysql4>
+        </models>
+        <models>
+            <sales_mysql4>
+                <rewrite>
+                    <order_grid_collection>Excellence_Salesgrid_Model_Sales_Mysql4_Order_Grid_Collection</order_grid_collection>
+                </rewrite>
+            </sales_mysql4>
+        </models>
+      
+
+        
+        
+        <blocks>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_grid>Excellence_Salesgrid_Block_Adminhtml_Sales_Order_Grid</sales_order_grid>
+                </rewrite>
+            </adminhtml>
+</blocks>
+        
+        
+        <resources>
+            <salesgrid_setup>
+                <setup>
+                    <module>Excellence_Salesgrid</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </salesgrid_setup>
+            <salesgrid_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </salesgrid_write>
+            <salesgrid_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </salesgrid_read>
+        </resources>
+        <blocks>
+            <salesgrid>
+                <class>Excellence_Salesgrid_Block</class>
+            </salesgrid>
+        </blocks>
+        <helpers>
+            <salesgrid>
+                <class>Excellence_Salesgrid_Helper</class>
+            </salesgrid>
+        </helpers>
+    </global>
+</config>

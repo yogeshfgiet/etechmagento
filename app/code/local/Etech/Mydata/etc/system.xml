@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <newtab translate="label" module="customer">
+            <label>Etech Test</label>
+            <sort_order>1</sort_order>
+        </newtab>
+    </tabs>
+    <sections>
+        <testsection translate="label" module="fav">
+            <class>separator-top</class>
+            <label>New Test Section</label>
+            <tab>newtab</tab>
+            <sort_order>130</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <test translate="label">
+                    <label>Test Group</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                   
+                    <fields>
+                        <slider translate="label">
+                            <label>Please Select</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                       </slider>
+                    </fields>
+                    
+                    <fields>
+                        <name_text translate="label">
+                            <label>Text Field</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </name_text>
+                    </fields>
+                     <fields>
+                        <patient translate="label">
+                            <label>Select More Option</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </patient>
+                    </fields>
+                 
+                    
+                     
+                </test>
+                
+                
+                </groups>
+            </testsection>
+    </sections>
+</config>

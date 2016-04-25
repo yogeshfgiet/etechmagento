@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <salesgrid_adminhtml_salesgrid_index>
+        <reference name="content">
+            <block type="salesgrid/adminhtml_salesgrid" name="salesgrid" />
+        </reference>
+    </salesgrid_adminhtml_salesgrid_index>
+</layout>

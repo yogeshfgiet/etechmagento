@@ -1,0 +1,64 @@
+  
+<?php
+$updata_Data = $this->updateData();
+
+$id = $updata_Data->getData('test_id');
+$title = $updata_Data->getData('title');
+$filename = $updata_Data->getData('	filename');
+$content = $updata_Data->getData('content');
+
+$status = $updata_Data->getData('status');
+?>
+
+
+<fieldset><legend>User Data</legend> 
+    <form method="post" action="" class="scaffold-form">
+
+        <label>   <?php echo $this->__('Title'); ?>  </label>  
+        <input type="text" name="title"   value="<?php
+        if (!empty($title)) {
+            echo $title;
+        }
+        ?>"><br>
+
+
+        <label>   <?php echo $this->__('  File Name'); ?>  </label>  
+
+        <input type="text" name="filename"  value="<?php
+        if (!empty($filename)) {
+            echo $filename;
+        }
+        ?>"><br>
+
+
+
+        <label>  <?php echo $this->__('Contents'); ?>  </label>  
+
+        <input type="text" name="content" value="<?php
+        if (!empty($content)) {
+            echo $content;
+        }
+        ?>"><br>
+
+
+        <label>   <?php echo $this->__('Status'); ?>  </label>  
+
+        <select name="status" id= "status">
+            <option value="<?php
+            if (!empty($status)) {
+                echo $status;
+            }
+            ?>" >Enabled</option>
+            <option value="<?php
+            if (!empty($status)) {
+                echo $status;
+            }
+            ?>" >Disabled</option>
+        </select>
+
+        <input type="Submit" name="submit" value="<?php echo $this->__('Submit'); ?>">
+
+    </form>
+</fieldset>
+
+

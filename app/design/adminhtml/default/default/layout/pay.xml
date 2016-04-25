@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <pay_adminhtml_pay_index>
+        <reference name="content">
+            <block type="pay/adminhtml_pay" name="pay" />
+        </reference>
+    </pay_adminhtml_pay_index>
+</layout>

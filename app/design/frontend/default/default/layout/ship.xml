@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <ship_index_index>
+        <reference name="content">
+            <block type="ship/ship" name="ship" template="ship/ship.phtml" />
+        </reference>
+    </ship_index_index>
+</layout> 

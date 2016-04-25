@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Excellence
+ * @package    Excellence_Ajaxwishlist
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Excellence_Ajaxwishlist>
+            <version>0.1.0</version>
+        </Excellence_Ajaxwishlist>
+    </modules>
+    <frontend>
+        <routers>
+            <ajaxwishlist>
+                <use>standard</use>
+                <args>
+                    <module>Excellence_Ajaxwishlist</module>
+                    <frontName>ajaxwishlist</frontName>
+                </args>
+            </ajaxwishlist>
+        </routers>
+        <layout>
+            <updates>
+                <ajaxwishlist>
+                    <file>ajaxwishlist.xml</file>
+                </ajaxwishlist>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<ajaxwishlist>
+				<use>admin</use>
+				<args>
+					<module>Excellence_Ajaxwishlist</module>
+					<frontName>ajaxwishlist</frontName>
+				</args>
+			</ajaxwishlist>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<ajaxwishlist module="ajaxwishlist">
+				<title>Ajaxwishlist</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="ajaxwishlist">
+						<title>Manage Items</title>
+						<sort_order>0</sort_order>
+						<action>ajaxwishlist/adminhtml_ajaxwishlist</action>
+					</items>
+				</children>
+			</ajaxwishlist>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Excellence_Ajaxwishlist>
+							<title>Ajaxwishlist Module</title>
+							<sort_order>10</sort_order>
+						</Excellence_Ajaxwishlist>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<ajaxwishlist>
+					<file>ajaxwishlist.xml</file>
+				</ajaxwishlist>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <ajaxwishlist>
+                <class>Excellence_Ajaxwishlist_Model</class>
+                <resourceModel>ajaxwishlist_mysql4</resourceModel>
+            </ajaxwishlist>
+            <ajaxwishlist_mysql4>
+                <class>Excellence_Ajaxwishlist_Model_Mysql4</class>
+                <entities>
+                    <ajaxwishlist>
+                        <table>ajaxwishlist</table>
+                    </ajaxwishlist>
+                </entities>
+            </ajaxwishlist_mysql4>
+        </models>
+        <resources>
+            <ajaxwishlist_setup>
+                <setup>
+                    <module>Excellence_Ajaxwishlist</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ajaxwishlist_setup>
+            <ajaxwishlist_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </ajaxwishlist_write>
+            <ajaxwishlist_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </ajaxwishlist_read>
+        </resources>
+        <blocks>
+            <ajaxwishlist>
+                <class>Excellence_Ajaxwishlist_Block</class>
+            </ajaxwishlist>
+        </blocks>
+        <helpers>
+            <ajaxwishlist>
+                <class>Excellence_Ajaxwishlist_Helper</class>
+            </ajaxwishlist>
+        </helpers>
+        <rewrite>
+        <ajaxwishlist_wishlist> <!--This can be any unique id -->
+            <from><![CDATA[#^/Wishlist/index/#]]></from>  <!-- the URL which u want to override-->
+            <to>ajaxwishlist/index/</to>  <!-- destination url -->
+        </ajaxwishlist_wishlist>
+    </rewrite>
+    
+
+        
+    </global>
+</config>

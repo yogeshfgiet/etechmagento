@@ -1,0 +1,95 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2006-2016 X.commerce, Inc. and affiliates (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @see Mage_Page_Block_Html_Topmenu
+ */
+?>
+
+
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Quicksand:400,300,700' rel='stylesheet' type='text/css'>
+
+<?php $_menu = $this->getHtml('level-top') ?>
+<?php if ($_menu): ?>
+    <div class="nav-container">
+        <ul class="mainmenu" id="nav">
+
+            <li class="nav-home">
+                <a href="<?php echo $this->getUrl('') ?>">
+                    <?php echo $this->__('Home'); ?>
+                </a>
+            </li>
+            <li id="shop" class="shop">
+                <a href="<?php echo $this->getUrl('#') ?>">
+                    <?php echo $this->__('Shop'); ?>
+                </a>
+                <img src="<?php echo $this->getSkinUrl('images/downarrow1.png') ?>">
+
+                <ul class="subMenu">
+                   <?php echo $_menu ?>
+                </ul>
+
+
+            </li>
+
+
+
+            <li class="blog">
+                <a href="<?php echo $this->getUrl('') ?>">
+                    <?php echo $this->__('Blog'); ?>
+                </a>
+                <img src="<?php echo $this->getSkinUrl('images/downarrow1.png') ?>">
+            </li>
+            <?php //echo $_menu ?>
+
+            <li class="error">
+                <a href="<?php echo $this->getUrl('no-route') ?>">
+                    <?php echo $this->__('404'); ?>
+                </a>
+            </li>
+            <li class="nav-contact">
+                <a href="<?php echo $this->getUrl('customer-service') ?>">
+                    <?php echo $this->__('Contact'); ?>
+                </a>
+            </li>
+        </ul>
+
+        <div id="my-search" class="quick-access">
+            <?php echo $this->getChildHtml('topSearch') ?>
+ 
+        </div>  
+        
+    </div>
+
+
+    <?php
+
+
+ endif ?>

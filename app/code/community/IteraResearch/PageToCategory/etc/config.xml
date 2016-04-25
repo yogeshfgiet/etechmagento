@@ -1,0 +1,105 @@
+<?xml version="1.0"?> 
+<!--
+/**
+ * This file is part of PageToCategory extension.
+ *
+ * @category    IteraResearch
+ * @package     IteraResearch_PageToCategory
+ * @copyright   Copyright (c) 2003-2015 Itera Research, Inc. All rights reserved. (http://www.itera-research.com/)
+ * @license     http://www.gnu.org/licenses Lesser General Public License
+ */
+-->
+<config>
+	<modules> 
+		<IteraResearch_PageToCategory>
+			<version>1.0.0</version>
+		</IteraResearch_PageToCategory>
+	</modules> 
+	<global>
+        <blocks>
+            <pagetocategory>
+                <class>IteraResearch_PageToCategory_Block</class>
+            </pagetocategory>
+            <catalog>
+                <rewrite>
+                    <navigation>IteraResearch_PageToCategory_Block_Catalog_Navigation</navigation>
+                </rewrite>
+            </catalog>
+        </blocks>
+		<models> 
+			<pagetocategory>
+				<class>IteraResearch_PageToCategory_Model</class>
+                <resourceModel>pagetocategory_resource</resourceModel>
+			</pagetocategory>
+            <pagetocategory_resource>
+                <class>IteraResearch_PageToCategory_Model_Resource</class>
+                <entities>
+                    <relation>
+                        <table>ir_page_category_relation</table>
+                    </relation>
+                </entities>
+            </pagetocategory_resource>
+            <catalog>
+                <rewrite>
+                    <category>IteraResearch_PageToCategory_Model_Catalog_Category</category>
+                </rewrite>
+            </catalog>
+            <cms>
+                <rewrite>
+                    <page>IteraResearch_PageToCategory_Model_Page</page>
+                </rewrite>
+            </cms>
+		</models>
+        <helpers>
+            <pagetocategory>
+                <class>IteraResearch_PageToCategory_Helper</class>
+            </pagetocategory>
+        </helpers>
+        <resources>
+            <pagetocategory_setup>
+                <setup>
+                    <module>IteraResearch_PageToCategory</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </pagetocategory_setup>
+        </resources>
+        <events>
+            <page_block_html_topmenu_gethtml_before>
+                <observers>
+                    <pagetocategory_add_topmenu_items>
+                        <class>IteraResearch_PageToCategory_Model_Observer</class>
+                        <method>addPagesToTopmenuItems</method>
+                    </pagetocategory_add_topmenu_items>
+                </observers>
+            </page_block_html_topmenu_gethtml_before>
+        </events>
+	</global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <pagetocategory>
+                    <file>iteraresearch/pagetocategory.xml</file>
+                </pagetocategory>
+            </updates>
+        </layout>
+    </adminhtml>
+    <admin>
+        <routers>
+            <pagetocategory>
+                <use>admin</use>
+                <args>
+                    <module>IteraResearch_PageToCategory</module>
+                    <frontName>pagetocategory</frontName>
+                </args>
+            </pagetocategory>
+        </routers>
+    </admin>
+    <default>
+        <cms>
+            <pagetocategory>
+                <use_page_title>1</use_page_title>
+                <show_in_left_navigation>0</show_in_left_navigation>
+            </pagetocategory>
+        </cms>
+    </default>
+</config> 

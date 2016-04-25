@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+* @category   Etech
+* @package    Etech_Mydata
+* @author     ModuleCreator
+* @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+    
+ 
+    
+    <modules>
+        <Etech_Mydata>
+            <version>0.1.0</version>
+        </Etech_Mydata>
+    </modules>
+  
+    <frontend>
+        <events>
+            <customer_login> <!-- Name of Event -->
+                <observers>
+                    <login_time> <!-- Any Unique Identifier -->
+                        <type>singleton</type>
+                        <class>Etech_Mydata_Model_Observer</class> <!-- Over Model Class -->
+                        <method>customerLogin</method> <!-- name of function -->
+                    </login_time>
+                </observers>
+            </customer_login>    
+        </events>
+        <events>
+            <customer_logout> <!-- Name of Event -->
+                <observers>
+                    <logout_time> <!-- Any Unique Identifier -->
+                        <type>singleton</type>
+                        <class>Etech_Mydata_Model_Observer</class> <!-- Over Model Class -->
+                        <method>customerLogout</method> <!-- name of function -->
+                    </logout_time>
+                </observers>
+            </customer_logout>    
+        </events>
+        
+         <events>
+            <sales_order_place_after>
+                <observers>
+                    <auto_order>
+                        <type>singleton</type>
+                        <class>Etech_Mydata_Model_Observer</class>
+                        <method>implementOrderStatus</method>
+                    </auto_order>
+                </observers>
+            </sales_order_place_after>
+        </events>
+      
+        <routers>
+            <mydata>
+                <use>standard</use>
+                <args>
+                    <module>Etech_Mydata</module>
+                    <frontName>mydata</frontName>
+                </args>
+            </mydata>
+        </routers>
+        <layout>
+            <updates>
+                <mydata>
+                    <file>mydata.xml</file>
+                </mydata>
+            </updates>
+        </layout>
+        
+        
+        
+    </frontend>
+    <admin>
+        <routers>
+            <mydata>
+                <use>admin</use>
+                <args>
+                    <module>Etech_Mydata</module>
+                    <frontName>mydata</frontName>
+                </args>
+            </mydata>
+        </routers>
+    </admin>
+ 
+    <adminhtml>
+       
+        <acl>
+            <resources>
+                <admin>  <!--This is acl based on URL. If you see URL it would be /admin/system_config/ -->
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <testsection translate="title" module="fav">  <!-- This is name of the section created by us -->
+                                            <title>Test Section ACL</title>  <!-- Title as shown in User->Roles->Permissions Window -->
+                                            <sort_order>99</sort_order>
+                                        </testsection>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+  
+ 
+        <menu>
+            <mydata module="mydata">
+                <title>Mydata</title>
+                <sort_order>71</sort_order>               
+                <children>
+                    <items module="mydata">
+                        <title>Manage Items</title>
+                        <sort_order>0</sort_order>
+                        <action>mydata/adminhtml_mydata</action>
+                    </items>
+                </children>
+            </mydata>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <Etech_Mydata>
+                            <title>Mydata Module</title>
+                            <sort_order>10</sort_order>
+                        </Etech_Mydata>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <mydata>
+                    <file>mydata.xml</file>
+                </mydata>
+            </updates>
+        </layout>
+    </adminhtml>   
+    <global>
+        <blocks>
+            <catalog>
+                <rewrite>
+                    <product_price>Etech_Mydata_Block_Catalog_Product_Price</product_price>
+                </rewrite>
+            </catalog>
+        </blocks>
+        <models>
+            <catalog>
+                <rewrite>
+                    <layer>Etech_Mydata_Model_Layer</layer>
+                </rewrite>
+            </catalog>
+        </models>
+     
+        <models>
+            <mydata>
+                <class>Etech_Mydata_Model</class>
+                <resourceModel>mydata_mysql4</resourceModel>
+            </mydata>
+            <mydata_mysql4>
+                <class>Etech_Mydata_Model_Mysql4</class>
+                <entities>
+                    <mydata>
+                        <table>mydata</table>
+                    </mydata>
+                    <profile>
+                        <table>profile</table>
+                    </profile>
+                    <user>
+                        <table>user</table>
+                    </user>
+                    <login>
+                        <table>login</table>
+                    </login>
+                     <neworder>
+                        <table>neworder</table>
+                    </neworder>
+                  
+                </entities>
+            </mydata_mysql4>
+        </models>
+        <resources>
+            <mydata_setup>
+                <setup>
+                    <module>Etech_Mydata</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </mydata_setup>
+            <mydata_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </mydata_write>
+            <mydata_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </mydata_read>
+        </resources>
+        <blocks>
+            <mydata>
+                <class>Etech_Mydata_Block</class>
+            </mydata>
+        </blocks>
+        <helpers>
+            <mydata>
+                <class>Etech_Mydata_Helper</class>
+            </mydata>
+        </helpers>
+        
+    </global>
+    
+    <global>
+        <rewrite>
+            <etech_mydata_checkout_cart> <!--This can be any unique id -->
+                <from><![CDATA[#^/checkout/cart/#]]></from>  <!-- the URL which u want to override-->
+                <to>/mydata/checkout_cart/</to>  <!-- destination url -->
+            </etech_mydata_checkout_cart>
+        </rewrite>
+    </global>
+
+</config>

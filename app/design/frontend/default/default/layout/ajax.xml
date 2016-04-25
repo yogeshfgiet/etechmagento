@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <ajax_index_index>
+        <reference name="content">
+            <block type="ajax/ajax" name="ajax" template="ajax/ajax.phtml" />
+        </reference>
+    </ajax_index_index>
+</layout> 

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <slider_index_index>
+        <reference name="content">
+            <block type="slider/slider" name="slider" template="slider/slider.phtml" />
+        </reference>
+    </slider_index_index>
+</layout> 

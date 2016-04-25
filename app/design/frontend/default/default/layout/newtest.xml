@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <newtest_index_index>
+        <reference name="content">
+            <block type="newtest/newtest" name="newtest" template="newtest/newtest.phtml" />
+        </reference>
+    </newtest_index_index>
+	<newtest_index_insert>
+        <reference name="content">
+            <block type="newtest/newtest" name="newtest1" template="newtest/add.phtml" />
+        </reference>
+    </newtest_index_insert>
+
+	<newtest_index_update>
+        <reference name="content">
+            <block type="newtest/newtest" name="newtest2" template="newtest/update.phtml" />
+        </reference>
+    </newtest_index_update>
+
+</layout> 

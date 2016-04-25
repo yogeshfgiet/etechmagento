@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <default>
+        <reference name="catalog.topnav">
+            <block type="newsletter/subscribe" name="left.newsletter" template="newsletter/subscribe.phtml"/>
+            <block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
+        </reference>
+<!--        <reference name="footer">
+            <block type="newsletter/subscribe" name="left.newsletter" template="newsletter/subscribe.phtml"/>
+        </reference>-->
+        
+        <reference name="footer">
+            <block type="newsletter/subscribe" name="newsletter" as="newsletter" template="newsletter/subscribe.phtml" before="-" />
+            <block type="cms/block" name="new_footer_link" before="-">
+      <action method="setBlockId"><block_id>new_footer_link</block_id></action>
+</block>
+        </reference>
+        <reference name="header">
+            <block type="cms/block" name="facebook_block" before="-"/>
+            <block type="directory/currency" name="custom_currency_selector" template="directory/currency.phtml"/>
+        </reference>
+       <reference name="header">
+           
+        <block  type="newslider/newslider" name="newslider" template="newslider/newslider.phtml" />
+       
+    </reference>
+   
+
+        
+   </default>
+    
+</layout>

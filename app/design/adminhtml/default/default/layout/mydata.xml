@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <mydata_adminhtml_mydata_index>
+        <reference name="content">
+            <block type="mydata/adminhtml_mydata" name="mydata" />
+        </reference>
+    </mydata_adminhtml_mydata_index>
+</layout>

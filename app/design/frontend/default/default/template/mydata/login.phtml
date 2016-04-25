@@ -1,0 +1,46 @@
+  
+
+<?php
+$myData = $this->loginDetails();
+?> 
+
+<div class="page-title">
+    <h1><?php echo Mage::helper('contacts')->__('Login Information') ?></h1>
+</div>  
+
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php echo $collection = $this->getCollection(); ?>
+
+
+<?php if ($collection->getSize()): ?>
+    <table class="data-table" id="my-custom-table">
+        <col width="1" />
+        <col width="1" />
+        <col />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <thead>
+            <tr>
+                <th class="number"><?php echo $this->__('User Name') ?></th>
+                <th class="date"><?php echo $this->__('Login Time') ?></th>
+                <th class="date"><?php echo $this->__('Logout Time') ?></th>
+        </thead>
+        <tbody>
+            <?php $_odd = ''; ?>
+
+            <tr class="<?php ?>">
+                <td class="number"><?php echo $myData [0]['user_name']; ?></td>
+                <td class="date"><span class="nobr"><?php echo $myData [0]['login_time'] ?></span></td>
+                <td class="total"><?php echo $myData [0]['logout_time'] ?></td>
+
+            </tr>
+
+        </tbody>
+    </table>
+    <script type="text/javascript">decorateTable('my-custom-table');</script>
+
+<?php else: ?>
+    <p><?php echo $this->__('The collection is empty.'); ?></p>
+<?php endif ?>
+

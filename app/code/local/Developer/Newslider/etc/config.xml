@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Developer
+ * @package    Developer_Newslider
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Developer_Newslider>
+            <version>0.1.0</version>
+        </Developer_Newslider>
+    </modules>
+    <frontend>
+        <routers>
+            <newslider>
+                <use>standard</use>
+                <args>
+                    <module>Developer_Newslider</module>
+                    <frontName>newslider</frontName>
+                </args>
+            </newslider>
+        </routers>
+        <layout>
+            <updates>
+                <newslider>
+                    <file>newslider.xml</file>
+                </newslider>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<newslider>
+				<use>admin</use>
+				<args>
+					<module>Developer_Newslider</module>
+					<frontName>newslider</frontName>
+				</args>
+			</newslider>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<newslider module="newslider">
+				<title>Newslider</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="newslider">
+						<title>Manage Items</title>
+						<sort_order>0</sort_order>
+						<action>newslider/adminhtml_newslider</action>
+					</items>
+				</children>
+			</newslider>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Developer_Newslider>
+							<title>Newslider Module</title>
+							<sort_order>10</sort_order>
+						</Developer_Newslider>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<newslider>
+					<file>newslider.xml</file>
+				</newslider>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <newslider>
+                <class>Developer_Newslider_Model</class>
+                <resourceModel>newslider_mysql4</resourceModel>
+            </newslider>
+            <newslider_mysql4>
+                <class>Developer_Newslider_Model_Mysql4</class>
+                <entities>
+                    <newslider>
+                        <table>newslider</table>
+                    </newslider>
+                </entities>
+            </newslider_mysql4>
+        </models>
+        <resources>
+            <newslider_setup>
+                <setup>
+                    <module>Developer_Newslider</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </newslider_setup>
+            <newslider_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </newslider_write>
+            <newslider_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </newslider_read>
+        </resources>
+        <blocks>
+            <newslider>
+                <class>Developer_Newslider_Block</class>
+            </newslider>
+        </blocks>
+        <helpers>
+            <newslider>
+                <class>Developer_Newslider_Helper</class>
+            </newslider>
+        </helpers>
+    </global>
+</config>

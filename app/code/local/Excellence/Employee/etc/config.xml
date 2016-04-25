@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+* @category   Excellence
+* @package    Excellence_Employee
+* @author     ModuleCreator
+* @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+    <modules>
+        <Excellence_Employee>
+            <version>0.1.0</version>
+        </Excellence_Employee>
+    </modules>
+    <frontend>
+        <routers>
+            <employee>
+                <use>standard</use>
+                <args>
+                    <module>Excellence_Employee</module>
+                    <frontName>employee</frontName>
+                </args>
+            </employee>
+        </routers>
+        <layout>
+            <updates>
+                <employee>
+                    <file>employee.xml</file>
+                </employee>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <employee>
+                <use>admin</use>
+                <args>
+                    <module>Excellence_Employee</module>
+                    <frontName>employee</frontName>
+                </args>
+            </employee>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <employee module="employee">
+                <title>Employee</title>
+                <sort_order>71</sort_order>              
+                <children>
+                    <items module="employee">
+                        <title>Manage Employees</title>
+                        <sort_order>0</sort_order>
+                    <action>employee/adminhtml_employee</action>
+                    </items>
+                      <items2 module="employee">
+                        <title>Manage Employees</title>
+                        <sort_order>0</sort_order>
+                    <action>employee/adminhtml_employee2</action>
+                    </items2>
+
+                </children>
+            </employee>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <Excellence_Employee>
+                            <title>Employee Module</title>
+                            <sort_order>10</sort_order>
+                        </Excellence_Employee>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <employee>
+                    <file>employee.xml</file>
+                </employee>
+            </updates>
+        </layout>
+
+    </adminhtml>   
+    <global>
+        <models>
+            <employee>
+                <class>Excellence_Employee_Model</class>
+                <resourceModel>employee_mysql4</resourceModel>
+            </employee>
+            <employee_mysql4>
+                <class>Excellence_Employee_Model_Mysql4</class>
+                <entities>
+                    <employee>
+                        <table>employee</table>
+                    </employee>
+                </entities>
+            </employee_mysql4>
+        </models>
+        <resources>
+            <employee_setup>
+                <setup>
+                    <module>Excellence_Employee</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </employee_setup>
+            <employee_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </employee_write>
+            <employee_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </employee_read>
+        </resources>
+        <blocks>
+            <employee>
+                <class>Excellence_Employee_Block</class>
+            </employee>
+        </blocks>
+        <helpers>
+            <employee>
+                <class>Excellence_Employee_Helper</class>
+            </employee>
+        </helpers>
+    </global>
+</config>

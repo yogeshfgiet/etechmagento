@@ -1,0 +1,75 @@
+
+<?php $imageCollection = $this->getData();
+?>
+
+<div id="container">
+    <div id="example">
+            <!-- <img src="img/new-ribbon.png" width="112" height="112" alt="New Ribbon" id="ribbon"> -->
+        <div id="slides">
+            <div class="slides_container">
+
+                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('homepageslider')->toHtml(); ?>
+                <?php foreach ($imageCollection as $collection) { ?>
+
+
+
+
+
+                    <a>
+
+                        <div class="slider">
+                            <div class="left-slider">
+
+
+
+
+                                <div class="e-shopper">
+
+                                    <h1><span>E</span>-SHOPPER</h1> 
+
+                                </div>
+                                <h2 class="free">Free Ecommerce Template</h2>
+                                <p class="slider-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                </p>
+                                <div class="get-it" >
+                                    <button class="" data-toggle="dropdown" type="button">
+                                        Get it now
+
+                                    </button> 
+                                </div>
+
+                            </div>
+                            <div class="right-slider">
+                                <div class="girl-image">
+                                    <img src="<?php echo Mage::getBaseUrl('media');
+                echo $collection['filename']; ?>">  
+
+
+                                </div>
+
+                                <div class="offer-price">
+
+
+                                    <img src="<?php echo $this->getSkinUrl('images/pricing.png') ?>"> 
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+                    </a>
+
+                <?php } ?>
+
+            </div>
+            <a href="#" class="prev"><img src="<?php echo $this->getSkinUrl('images/newleft.png') ?>"  alt="Arrow Prev"></a>
+            <a href="#" class="next"><img src="<?php echo $this->getSkinUrl('images/arrowright.png') ?>" alt="Arrow Next"></a>
+        </div>
+
+    </div>
+</div> 

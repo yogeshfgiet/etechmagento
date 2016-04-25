@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <ajax_adminhtml_ajax_index>
+        <reference name="content">
+            <block type="ajax/adminhtml_ajax" name="ajax" />
+        </reference>
+    </ajax_adminhtml_ajax_index>
+</layout>
